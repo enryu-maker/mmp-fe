@@ -3,7 +3,7 @@ import { TbBath, TbBed, TbRulerMeasure } from "react-icons/tb";
 
 export default function Vertical() {
     return (
-        <button className='h-[180px] w-[92%] lg:w-[350px] lg:h-[200px] bg-white rounded-lg flex flex-row justify-evenly items-center mb-5 '>
+        <button className='h-[180px] w-[92%] lg:w-[350px] lg:h-[200px] bg-white rounded-lg shadow-lg flex flex-row justify-evenly items-center mb-5 '>
             <div className='h-[95%] w-[40%] bg-black rounded-lg' />
             <div className='flex flex-col h-[95%] w-[55%] justify-between items-start p-2'>
                 <h3 className='text-ms w-[90%] font-poppins font-black self-start text-start'>Nowhow Haiz Mansion</h3>

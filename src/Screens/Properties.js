@@ -3,7 +3,7 @@ import { Images } from '../Constants/Images'
 import Vertical from '../Components/Vertical'
 export default function Properties() {
     return (
-        <div className='bg-[#EEEEEE] mt-20'>
+        <div className='bg-white mt-20'>
             <img className='object-cover w-full h-[200px] lg:h-[350px]' src={Images.city} />
             <div className='flex flex-col lg:hidden items-center py-5'>
                 <button

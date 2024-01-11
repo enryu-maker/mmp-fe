@@ -1,7 +1,6 @@
 {
   "name": "mmp-fe",
   "version": "0.1.0",
-  "homepage": "https://enryu-maker.github.io/mmp-fe/",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.18",
@@ -9,6 +8,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.6.5",
     "flatlist-react": "^1.5.14",
     "gh-pages": "^6.1.1",
     "headlessui": "^0.0.0",
@@ -16,11 +16,15 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.49.2",
     "react-icons": "^4.12.0",
+    "react-loader-spinner": "^6.1.6",
+    "react-player": "^2.14.1",
     "react-redux": "^9.0.4",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.21.1",
     "react-scripts": "5.0.1",
+    "react-youtube": "^10.1.0",
     "redux": "^5.0.1",
+    "redux-thunk": "^3.1.0",
     "thunk": "^0.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -51,6 +55,7 @@
     ]
   },
   "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
     "tailwindcss": "^3.4.1"
   }
 }

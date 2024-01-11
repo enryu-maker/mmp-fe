@@ -15,7 +15,7 @@ export default function Contact() {
         })
     }, [])
     return (
-        <div className='bg-[#EEEEEE] mt-20'>
+        <div className='bg-white mt-20'>
             <img className='object-cover w-full h-[200px] lg:h-[350px]' src={Images.city} />
             <div className='flex flex-col lg:flex-row justify-evenly items-start py-10'>
                 <div className='flex flex-wrap justify-evenly items-center w-full lg:w-[60%]'>

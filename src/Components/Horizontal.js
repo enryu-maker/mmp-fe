@@ -2,7 +2,7 @@ import React from 'react'
 import { TbBath, TbBed, TbRulerMeasure } from "react-icons/tb";
 export default function Horizontal() {
     return (
-        <button className='h-[240px] mb-5 lg:mb-0 lg:h-[300px] w-[180px] lg:w-[250px] bg-white rounded-lg flex flex-col items-center justify-between py-1 lg:py-2'>
+        <button className='h-[240px] mb-5 shadow-lg lg:mb-0 lg:h-[300px] w-[180px] lg:w-[250px] bg-white rounded-lg flex flex-col items-center justify-between py-1 lg:py-2'>
             <div className='h-[120px] lg:h-[150px] w-[92%] bg-black rounded-lg' />
             <h3 className='text-xs lg:text-sm w-[90%] font-poppins font-black self-center text-start '>Nowhow Haiz Mansion</h3>
             <h3 className='text-xs w-[90%] font-poppins font-bold self-center text-start text-[#5444e4]'>$770/Month</h3>

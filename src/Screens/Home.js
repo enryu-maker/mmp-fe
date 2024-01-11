@@ -7,11 +7,15 @@ import Vertical from '../Components/Vertical';
 import { useNavigate } from 'react-router-dom';
 import FlatList from 'flatlist-react/lib';
 import BlogCard from '../Components/BlogCard';
+import { useSelector } from 'react-redux';
 
 export default function Home() {
     const navigate = useNavigate();
+    const blogs = useSelector(state => state.Reducers.blog)
+    const banner = useSelector(state => state.Reducers.banner)
+
     return (
-        <div className='bg-[#EEEEEE] mt-20'>
+        <div className='bg-white mt-20'>
             <Carousel
                 labels={false}
                 showThumbs={false}
@@ -55,23 +59,10 @@ export default function Home() {
                     <h1 className='text-xl  lg:text-4xl font-bold my-5 text-start text-[#5444e4] tracking-widest'>Near Me . </h1>
                     <button className='text-xs lg:text-base lg:hidden font-poppins font-bold my-5 text-start text-black tracking-widest'>See More</button>
                 </div>
-                <div className='flex flex-wrap w-full lg:w-[98%] items-center justify-evenly lg:justify-between'>
-                    <FlatList
-                        list={[1, 2, 3, 4, 5]}
-                        renderItem={(item, index) => <Horizontal key={index} />}
-                        renderWhenEmpty={() => <div>List is empty!</div>}
-                    />
-                </div>
-            </div>
-            <div className='flex flex-col items-center self-center justify-center py-8'>
-                <div className='flex flex-row w-[88%] lg:w-[98%] justify-between items-center'>
-                    <h1 className='text-xl  lg:text-4xl font-bold my-5 text-start text-[#5444e4] tracking-widest'>Suggestions . </h1>
-                    <button className='text-xs lg:text-base lg:hidden font-poppins font-bold my-5 text-start text-black tracking-widest'>See More</button>
-                </div>
-                <div className='flex flex-wrap w-full justify-evenly items-center snap-y'>
+                <div className='flex flex-wrap w-full lg:w-[88%] items-center justify-evenly lg:justify-between'>
                     <FlatList
                         list={[1, 2, 3, 4]}
-                        renderItem={(item, index) => <Vertical key={index} />}
+                        renderItem={(item, index) => <Horizontal key={index} />}
                         renderWhenEmpty={() => <div>List is empty!</div>}
                     />
                 </div>
@@ -82,13 +73,32 @@ export default function Home() {
                     View All
                 </button>
             </div>
+            <div className='flex flex-col items-center self-center justify-center py-8'>
+                <div className='flex flex-row w-[88%] lg:w-[98%] justify-between items-center'>
+                    <h1 className='text-xl  lg:text-4xl font-bold my-5 text-start text-[#5444e4] tracking-widest'>Suggestions . </h1>
+                    <button className='text-xs lg:text-base lg:hidden font-poppins font-bold my-5 text-start text-black tracking-widest'>See More</button>
+                </div>
+                <div className='flex flex-wrap w-full justify-evenly items-center snap-y'>
+                    <FlatList
+                        list={[1, 2, 3]}
+                        renderItem={(item, index) => <Vertical key={index} />}
+                        renderWhenEmpty={() => <div>List is empty!</div>}
+                    />
+                </div>
+            </div>
+
             <div className='flex flex-col items-center self-center justify-center pb-8'>
                 <h1 className='text-xl  lg:text-3xl font-poppins font-black my-5 text-center text-[#5444e4] tracking-widest'>Blogs . </h1>
-                <div className='flex flex-col lg:flex-row w-full lg:w-[92%] justify-between items-center'>
-                    <BlogCard />
-                    <BlogCard />
-                    <BlogCard />
-                    <BlogCard />
+                <div className='flex flex-wrap w-full justify-evenly items-center snap-y mt-8'>
+                    <FlatList
+                        list={blogs}
+                        renderItem={(item, index) => <BlogCard item={item} />}
+                        renderWhenEmpty={() =>
+                            <div className='flex flex-col items-center justify-center'>
+                                <h1 className='text-center text-xl font-bold text-red-500 tracking-widest'>No Blogs Found!</h1>
+                            </div>
+                        }
+                    />
                 </div>
                 <button className='text-ms lg:text-base font-poppins font-bold my-5 text-start bg-[#5444e4] text-white tracking-widest p-2.5 rounded-md'>
                     View All
