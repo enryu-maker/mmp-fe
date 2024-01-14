@@ -1,29 +1,44 @@
 import React from 'react'
 import ReactPlayer from 'react-player/lazy'
+import { useDispatch } from 'react-redux';
+import { PostProperty } from '../../../Store/actions';
+import { Oval } from 'react-loader-spinner';
 export default function AddProperty() {
     const [data, setData] = React.useState({
-        name: '',
-        address: '',
-        type: '',
-        developer: '',
-        rera: '',
-        possesion: '',
-        map: '',
-        images: '',
-        apparement: '',
-        amenities: '',
-        builder: '',
-        city: '',
+        id: "",
+        name: "",
+        description: "",
+        address: "",
+        type: "",
+        developer: "",
+        rera: "",
+        possesion: "",
+        map: "",
+        apparement: "",
+        amenities: "",
+        builder: "",
+        city: "",
     })
+
     const [selectedFile, setSelectedFile] = React.useState("No file chosen");
+    const [loading, setLoading] = React.useState(false)
+    const [propertyImage, setPropertyImage] = React.useState("");
     const [file, setFile] = React.useState("");
     function handleChange(e) {
+        setPropertyImage(e.target.files)
         setSelectedFile(e.target.files.length > 1 ? `${e.target.files.length} files selected` : e.target.files[0].name)
         setFile(URL.createObjectURL(e.target.files[0]));
     }
+    const dispatch = useDispatch()
+    React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
+    }, [])
     return (
         <div className="flex flex-col  w-full  justify-evenly items-start">
-            <div className="flex min-h-full flex-1 flex-col w-full justify-center px-6 py-6  bg-white lg:px-8">
+            <div className="flex min-h-full flex-1 flex-col w-full justify-center px-6 py-6  bg-[#ebf3eb60] lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <h2 className="mt-10 text-center text-4xl font-bold leading-9 text-gray-900 tracking-widest">
                         Add Property
@@ -32,9 +47,25 @@ export default function AddProperty() {
 
                 <div className="mt-10 space-y-2 flex w-[100%] flex-wrap justify-evenly items-start">
                     <div className='lg:w-[40%] w-full'>
-                        <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
+                        <p htmlFor="id" className="block text-sm font-medium leading-6 text-gray-900">
+                            Property ID
+                        </p>
+                        <div className="mt-2">
+                            <input
+                                value={data.id}
+                                onChange={(e) => setData({ ...data, id: e.target.value })}
+                                id="id"
+                                name="id"
+                                type="text"
+                                required
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
+                            />
+                        </div>
+                    </div>
+                    <div className='lg:w-[40%] w-full'>
+                        <p htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
                             Property Name
-                        </label>
+                        </p>
                         <div className="mt-2">
                             <input
                                 value={data.name}
@@ -43,14 +74,30 @@ export default function AddProperty() {
                                 name="name"
                                 type="text"
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
                     <div className='lg:w-[40%] w-full'>
-                        <label htmlFor="address" className="block text-sm font-medium leading-6 text-gray-900">
+                        <p htmlFor="description" className="block text-sm font-medium leading-6 text-gray-900">
+                            Property Description
+                        </p>
+                        <div className="mt-2">
+                            <textarea
+                                id="description"
+                                name="description"
+                                value={data?.description}
+                                onChange={(e) => setData({ ...data, description: e.target.value })}
+                                type="text"
+                                required
+                                className="block w-full rounded-md border-0 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6 h-[180px]"
+                            />
+                        </div>
+                    </div>
+                    <div className='lg:w-[40%] w-full'>
+                        <p htmlFor="address" className="block text-sm font-medium leading-6 text-gray-900">
                             Property Address
-                        </label>
+                        </p>
                         <div className="mt-2">
                             <textarea
                                 value={data.address}
@@ -59,20 +106,20 @@ export default function AddProperty() {
                                 name="address"
                                 type="text"
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
                     <div className='lg:w-[40%] w-full'>
-                        <label htmlFor="link" className="block text-sm font-medium leading-6 text-gray-900">
+                        <p htmlFor="type" className="block text-sm font-medium leading-6 text-gray-900">
                             Property Type
-                        </label>
+                        </p>
                         <div className="mt-2">
                             <select
                                 value={data.type}
                                 onChange={
                                     (e) => setData({ ...data, type: e.target.value })
-                                } className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                } className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6">
                                 <option value="">Select Property Type</option>
                                 <option value="Residental">Residental</option>
                                 <option value="Commercial">commercial</option>
@@ -81,9 +128,9 @@ export default function AddProperty() {
                         </div>
                     </div>
                     <div className='lg:w-[40%] w-full'>
-                        <label htmlFor="developer" className="block text-sm font-medium leading-6 text-gray-900">
+                        <p htmlFor="developer" className="block text-sm font-medium leading-6 text-gray-900">
                             Property Developer Name
-                        </label>
+                        </p>
                         <div className="mt-2">
                             <input
                                 value={data.developer}
@@ -92,14 +139,14 @@ export default function AddProperty() {
                                 name="developer"
                                 type="text"
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
                     <div className='lg:w-[40%] w-full'>
-                        <label htmlFor="rera" className="block text-sm font-medium leading-6 text-gray-900">
+                        <p htmlFor="rera" className="block text-sm font-medium leading-6 text-gray-900">
                             RERA Number
-                        </label>
+                        </p>
                         <div className="mt-2">
                             <input
                                 value={data.rera}
@@ -108,19 +155,19 @@ export default function AddProperty() {
                                 name="rera"
                                 type="text"
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
                     <div className='lg:w-[40%] w-full'>
-                        <label htmlFor="link" className="block text-sm font-medium leading-6 text-gray-900">
+                        <p htmlFor="possesion" className="block text-sm font-medium leading-6 text-gray-900">
                             Possesion Type
-                        </label>
+                        </p>
                         <div className="mt-2">
                             <select
                                 value={data.possesion}
                                 onChange={(e) => setData({ ...data, possesion: e.target.value })}
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6">
                                 <option value="">Select Possesion Type</option>
                                 <option value="Ready to move">Ready to move</option>
                                 <option value="Under Construction">Under Construction</option>
@@ -129,9 +176,9 @@ export default function AddProperty() {
                     </div>
                     {/* Appartment Details */}
                     <div className='lg:w-[40%] w-full'>
-                        <label htmlFor="map" className="block text-sm font-medium leading-6 text-gray-900">
+                        <p htmlFor="map" className="block text-sm font-medium leading-6 text-gray-900">
                             Google Map Link
-                        </label>
+                        </p>
                         <div className="mt-2">
                             <input
                                 value={data.map}
@@ -140,14 +187,14 @@ export default function AddProperty() {
                                 name="map"
                                 type="text"
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
                     <div className='lg:w-[40%] w-full'>
-                        <label htmlFor="link" className="block text-sm font-medium leading-6 text-gray-900">
+                        <p htmlFor="custom-input" className="block text-sm font-medium leading-6 text-gray-900">
                             Property Images
-                        </label>
+                        </p>
                         <div class="flex flex-row items-center mt-2">
                             <input
                                 type="file"
@@ -159,7 +206,7 @@ export default function AddProperty() {
                             <label
                                 for="custom-input"
                                 className="block text-sm text-white mr-4 py-2 px-4
-                                        rounded-md border-0  font-semibold bg-indigo-600
+                                        rounded-md border-0  font-semibold bg-[#145e45]
                                         cursor-pointer"
                             >
                                 Choose file
@@ -168,9 +215,9 @@ export default function AddProperty() {
                         </div>
                     </div>
                     <div className='lg:w-[40%] w-full'>
-                        <label htmlFor="link" className="block text-sm font-medium leading-6 text-gray-900">
+                        <p htmlFor="apparement" className="block text-sm font-medium leading-6 text-gray-900">
                             Appartment Details
-                        </label>
+                        </p>
                         <div className="mt-2">
                             <input
                                 value={data.apparement}
@@ -180,14 +227,14 @@ export default function AddProperty() {
                                 type="text"
                                 placeholder='2 BHK | 3 BHK'
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
                     <div className='lg:w-[40%] w-full'>
-                        <label htmlFor="amenities" className="block text-sm font-medium leading-6 text-gray-900">
+                        <p htmlFor="amenities" className="block text-sm font-medium leading-6 text-gray-900">
                             Amenities
-                        </label>
+                        </p>
                         <div className="mt-2">
                             <input
                                 value={data.amenities}
@@ -197,14 +244,14 @@ export default function AddProperty() {
                                 type="text"
                                 placeholder='Water | Electricity | Parking'
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
                     <div className='lg:w-[40%] w-full'>
-                        <label htmlFor="link" className="block text-sm font-medium leading-6 text-gray-900">
+                        <p htmlFor="builder" className="block text-sm font-medium leading-6 text-gray-900">
                             About Builder
-                        </label>
+                        </p>
                         <div className="mt-2">
                             <input
                                 value={data.builder}
@@ -214,14 +261,14 @@ export default function AddProperty() {
                                 type="text"
                                 placeholder='Name | Contact | Email | Website'
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
                     <div className='lg:w-[40%] w-full'>
-                        <label htmlFor="link" className="block text-sm font-medium leading-6 text-gray-900">
+                        <p htmlFor="city" className="block text-sm font-medium leading-6 text-gray-900">
                             City
-                        </label>
+                        </p>
                         <div className="mt-2">
                             <input
                                 value={data.city}
@@ -230,21 +277,34 @@ export default function AddProperty() {
                                 name="city"
                                 type="text"
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
                     <div className='lg:w-[40%] w-full'>
                         <button
+                            onClick={() => {
+                                data.propertyImage = propertyImage
+                                dispatch(PostProperty(data, setLoading))
+                            }}
                             type="submit"
-                            className="flex w-full m-5 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            className="flex w-full mt-2 justify-center rounded-md bg-[#145e45] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#145e45] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#145e45]"
                         >
-                            Add Review
+                            {
+                                loading ?
+                                    <Oval
+                                        color='#fff'
+                                        height={20}
+                                        width={20}
+                                    />
+                                    :
+                                    'Add Property'
+                            }
                         </button>
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col w-full justify-center items-center px-6 py-6  bg-white lg:px-8">
+            <div className="flex flex-col w-full justify-center items-center px-6 py-6  bg-[#ebf3eb60] lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm ">
                     <h2 className="text-center text-4xl font-bold leading-9 text-gray-900 tracking-widest">
                         Preview
@@ -253,17 +313,22 @@ export default function AddProperty() {
                 <div className="mt-4 space-y-2.5 w-full flex flex-col rounded-sm justify-center items-center">
                     <img src={file} className='w-full h-[350px]' />
                     <div className=' mt-5 rounded-lg flex flex-col justify-start items-start w-full border p-2 space-y-2'>
-                        <h1 className='text-start text-3xl font-bold text-black tracking-widest'>Overview</h1>
+                        <h1 className='text-start lg:text-3xl font-bold text-black tracking-widest'>Overview</h1>
                         <hr className='w-full' />
-                        <p className='text-start text-lg font-medium text-black'>Property Name:<span className='text-gray-500'> {data.name}</span></p>
-                        <p className='text-start text-lg font-medium text-black'>Property Address:<span className='text-gray-500'> {data.address}</span></p>
-                        <p className='text-start text-lg font-medium text-black'>Property Type:<span className='text-gray-500'> {data.type}</span></p>
-                        <p className='text-start text-lg font-medium text-black'>Possesion Type:<span className='text-gray-500'> {data.possesion}</span></p>
-                        <p className='text-start text-lg font-medium text-black'>RERA No:<span className='text-gray-500'> {data.rera}</span></p>
+                        <p className='text-start text-sm lg:text-lg font-medium text-black'>Property Name:<span className='text-black font-light'> {data.name}</span></p>
+                        <p className='text-start text-sm lg:text-lg font-medium text-black'>Property Address:<span className='text-black font-light'> {data.address}</span></p>
+                        <p className='text-start text-sm lg:text-lg font-medium text-black'>Property Type:<span className='text-black font-light'> {data.type}</span></p>
+                        <p className='text-start text-sm lg:text-lg font-medium text-black'>Possesion Type:<span className='text-black font-light'> {data.possesion}</span></p>
+                        <p className='text-start text-sm lg:text-lg font-medium text-black'>RERA No:<span className='text-black font-light'> {data.rera}</span></p>
 
                     </div>
+                    <div className=' mt-5 rounded-lg flex flex-col justify-start items-start w-full border p-2 space-y-2'>
+                        <h1 className='text-start lg:text-3xl font-bold text-black tracking-widest'>Property Description</h1>
+                        <hr className='w-full' />
+                        <p className='text-justify text-sm lg:text-lg font-light text-black'>{data.description}</p>
+                    </div>
                     <div className=' mt-20 rounded-lg flex flex-col justify-start items-start w-full border p-2 space-y-2'>
-                        <h1 className='text-start text-3xl font-bold text-black tracking-widest'>Apartment Details</h1>
+                        <h1 className='text-start lg:text-3xl font-bold text-black tracking-widest'>Apartment Details</h1>
                         <hr className='w-full' />
                         {
                             data.apparement.split('|').map((item) => {
@@ -280,12 +345,12 @@ export default function AddProperty() {
 
                     </div>
                     <div className=' mt-20 rounded-lg flex flex-col justify-start items-start w-full border p-2 space-y-2'>
-                        <h1 className='text-start text-3xl font-bold text-black tracking-widest'>Google Maps</h1>
+                        <h1 className='text-start lg:text-3xl font-bold text-black tracking-widest'>Google Maps</h1>
                         <hr className='w-full' />
                         <iframe src={data.map} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" className='w-[95%] self-center  h-[400px] lg:h-[500px]'></iframe>
                     </div>
                     <div className=' mt-20 rounded-lg flex flex-col justify-start items-start w-full border p-2 space-y-2'>
-                        <h1 className='text-start text-3xl font-bold text-black tracking-widest'>Amenities</h1>
+                        <h1 className='text-start lg:text-3xl font-bold text-black tracking-widest'>Amenities</h1>
                         <hr className='w-full' />
                         {
                             data.amenities.split('|').map((item) => {
@@ -302,7 +367,7 @@ export default function AddProperty() {
                         }
                     </div>
                     <div className=' mt-20 rounded-lg flex flex-col justify-start items-start w-full border p-2 space-y-2'>
-                        <h1 className='text-start text-3xl font-bold text-black tracking-widest'>About Builder</h1>
+                        <h1 className='text-start lg:text-3xl font-bold text-black tracking-widest'>About Builder</h1>
                         <hr className='w-full' />
                         {
                             data.builder.split('|').map((item) => {

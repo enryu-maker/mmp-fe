@@ -5,7 +5,8 @@ const initialState = {
     reviews: [],
     blog: [],
     properties: [],
-    access: null
+    access: null,
+    city: null,
 }
 
 export default (state = initialState, action) => {
@@ -20,6 +21,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 nearBy: action.payload
+            }
+        case "GET_LOCATION":
+            return {
+                ...state,
+                city: action.payload
             }
         case "GET_SUGGESTIONS":
             return {

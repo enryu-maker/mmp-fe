@@ -11,9 +11,15 @@ export default function Login() {
         password: ''
     })
     const [loading, setLoading] = React.useState(false)
+    React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
+    }, [])
     return (
         <>
-            <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 mt-20 bg-white lg:px-8">
+            <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 mt-20 bg-[#ebf3eb60] lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <img
                         className="mx-auto h-10 w-auto"
@@ -39,7 +45,7 @@ export default function Login() {
                                     value={data.email}
                                     onChange={(e) => setData({ ...data, email: e.target.value })}
                                     required
-                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                                 />
                             </div>
                         </div>
@@ -59,7 +65,7 @@ export default function Login() {
                                     value={data.password}
                                     onChange={(e) => setData({ ...data, password: e.target.value })}
                                     required
-                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                                 />
                             </div>
                         </div>
@@ -70,7 +76,7 @@ export default function Login() {
                                 onClick={() => {
                                     dispatch(LoginAction(data.email, data.password, setLoading,navigate))
                                 }}
-                                className="mt-5 flex w-full justify-center items-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                className="mt-5 flex w-full justify-center items-center rounded-md bg-[#145e45] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#145e45] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#145e45]"
                             >
                                 {
                                     loading ?

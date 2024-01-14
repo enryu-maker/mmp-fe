@@ -6,13 +6,19 @@ import { useSelector } from 'react-redux';
 export default function AdminBlog() {
     const navigate = useNavigate();
     const blogs = useSelector(state => state.Reducers.blog)
+    React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
+    }, [])
     return (
-        <div className='bg-white mt-20'>
+        <div className='bg-[#ebf3eb60] pt-8'>
             <div className='flex flex-row justify-evenly items-center'>
-                <h1 className='text-center text-4xl font-bold text-[#5444e4] tracking-widest'>Active Blogs</h1>
+                <h1 className='text-center text-xl lg:text-4xl font-bold text-[#145e45] tracking-widest'>Active Blogs</h1>
                 <button
                     onClick={() => navigate('/addblogs')}
-                    className='ml-5 bg-[#5444e4] text-white px-5 py-2 rounded-md'>Add Blog</button>
+                    className='ml-5 bg-[#145e45] text-white px-2 py-1 rounded-md'>Add Blog</button>
             </div>
             <div className='flex flex-wrap w-full justify-evenly items-center snap-y mt-8'>
                 <FlatList

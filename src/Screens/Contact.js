@@ -6,7 +6,7 @@ export default function Contact() {
         email: '',
         phone: '',
         message: '',
-        rooms: ''
+        subject: ''
     })
     React.useEffect(() => {
         window.scrollTo({
@@ -15,7 +15,7 @@ export default function Contact() {
         })
     }, [])
     return (
-        <div className='bg-white mt-20'>
+        <div className='bg-[#ebf3eb60] pt-20'>
             <img className='object-cover w-full h-[200px] lg:h-[350px]' src={Images.city} />
             <div className='flex flex-col lg:flex-row justify-evenly items-start py-10'>
                 <div className='flex flex-wrap justify-evenly items-center w-full lg:w-[60%]'>
@@ -24,36 +24,33 @@ export default function Contact() {
                         onChange={(text) => {
                             setData({ ...data, name: text.target.value })
                         }}
-                        className='w-[92%] outline-none lg:w-[44%]  h-[50px] bg-white rounded-lg mb-2 lg:mb-5 px-2' placeholder='Name' />
+                        className='w-[92%] outline-none lg:w-[44%]  h-[50px] bg-white rounded-lg mb-2 lg:mb-5 px-2' placeholder='Name*' />
                     <input
                         value={data.email}
                         onChange={(text) => {
                             setData({ ...data, email: text.target.value })
                         }}
-                        className='w-[92%] outline-none lg:w-[44%] h-[50px] bg-white rounded-lg mb-2 lg:mb-5 px-2' placeholder='Email' />
+                        className='w-[92%] outline-none lg:w-[44%] h-[50px] bg-white rounded-lg mb-2 lg:mb-5 px-2' placeholder='Email*' />
                     <input value={data.phone}
                         onChange={(text) => {
                             setData({ ...data, phone: text.target.value })
-                        }} className='w-[92%] outline-none lg:w-[44%] h-[50px] bg-white rounded-lg mb-2 lg:mb-5 px-2' placeholder='Phone' />
-                    <select value={data.rooms}
+                        }} className='w-[92%] outline-none lg:w-[44%] h-[50px] bg-white rounded-lg mb-2 lg:mb-5 px-2' placeholder='Phone*' />
+                        <input value={data.subject}
                         onChange={(text) => {
-                            setData({ ...data, rooms: text.target.value })
-                        }} className='w-[92%] outline-none lg:w-[44%] h-[50px] bg-white rounded-lg mb-2 lg:mb-5 px-2'>
-                        <option value='1'>1</option>
-                        <option value='2'>2</option>
-                    </select>
+                            setData({ ...data, subject: text.target.value })
+                        }} className='w-[92%] outline-none lg:w-[44%] h-[50px] bg-white rounded-lg mb-2 lg:mb-5 px-2' placeholder='Subject*' />
                     <textarea value={data.message}
                         onChange={(text) => {
                             setData({ ...data, message: text.target.value })
-                        }} className='w-[92%] outline-none lg:w-[92%] h-[100px] px-2 bg-white rounded-lg mb-2 lg:mb-5' placeholder='Message' />
+                        }} className='w-[92%] outline-none lg:w-[92%] h-[100px] px-2 bg-white rounded-lg mb-2 lg:mb-5' placeholder='Message*' />
                     <button
                         onClick={() => {
                             console.log(data)
                         }}
-                        className='w-[92%] lg:w-[34%] h-[50px] bg-[#5444e4] text-lg rounded-lg text-white font-bold my-5 lg:mb-5 hover:bg-[#5444e490]'>Send Enquiry</button>
+                        className='w-[92%] lg:w-[34%] h-[50px] bg-[#145e45] text-lg rounded-lg text-white font-bold my-5 lg:mb-5 hover:bg-[#5444e490]'>Send Enquiry</button>
                 </div>
                 <div className='flex flex-col items-center justify-center w-full lg:w-[40%]'>
-                    <h1 className='lg:text-4xl w-[88%] text-start text-3xl font-black text-[#5444e4] tracking-widest'>Get In Touch</h1>
+                    <h1 className='lg:text-4xl w-[88%] text-start text-3xl font-black text-[#145e45] tracking-widest'>Get In Touch</h1>
                     <p className='text-start w-[88%] mt-5 text-gray-500'>Drop your requirments we will get back to you as soon as possible.</p>
                     <div className='flex flex-row items-start justify-start w-[88%] mt-5'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

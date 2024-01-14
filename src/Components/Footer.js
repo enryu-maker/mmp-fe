@@ -1,9 +1,10 @@
 import React from 'react'
 import { FaInstagram, FaFacebookSquare, FaLinkedin, FaYoutube } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { Images } from '../Constants/Images';
 export default function Footer() {
     return (
-        <div className='bg-[#5444e4] flex flex-col justify-center items-center'>
+        <div className='bg-[#145e45] flex flex-col justify-center items-center'>
             <div
                 className='text-white  p-4 flex flex-col w-full lg:w-[88%] self-center lg:flex-row justify-between items-start'>
 
@@ -52,6 +53,12 @@ export default function Footer() {
                 </div>
             </div>
             <h1 className=' w-full lg:w-[88%] text-sm lg:text-base font-poppins font-medium self-center text-center text-white tracking-widest py-5'>© 2021 MMP. All rights reserved.</h1>
+            <hr className='w-full lg:w-[88%] border-[#ebf3eb60] border-1' />
+            <img
+                onClick={() => {
+                    window.open("https://nerdtech.in")
+                }}
+                className='object-cover w-[88%] lg:w-auto cursor-pointer' src={Images.MMP} />
         </div>
     )
 }

@@ -6,8 +6,14 @@ import FlatList from 'flatlist-react/lib'
 
 export default function Blog() {
     const blogs = useSelector(state => state.Reducers.blog)
+    React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
+    }, [])
     return (
-        <div className='bg-white mt-20'>
+        <div className='bg-[#ebf3eb60] pt-20'>
             <img className='object-cover w-full h-[200px] lg:h-[350px]' src={Images.city} />
             <div className='flex flex-wrap w-full justify-evenly items-center snap-y mt-8'>
                 <FlatList

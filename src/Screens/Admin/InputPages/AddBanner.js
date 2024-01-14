@@ -14,9 +14,15 @@ export default function AddBanner() {
         setSelectedFile(e.target.files[0])
         setFile(URL.createObjectURL(e.target.files[0]));
     }
+    React.useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
+    }, [])
   return (
     <div className="flex flex-col lg:flex-row w-full  justify-evenly items-start">
-            <div className="flex min-h-full flex-1 flex-col w-full justify-center px-6 py-6  bg-white lg:px-8">
+            <div className="flex min-h-full flex-1 flex-col w-full justify-center px-6 py-6 bg-[#ebf3eb60] lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <h2 className="mt-10 text-center text-4xl font-bold leading-9 text-gray-900 tracking-widest">
                         Add Banner
@@ -51,7 +57,7 @@ export default function AddBanner() {
                             <label
                                 for="custom-input"
                                 className="block text-sm text-white mr-4 py-2 px-4
-                                        rounded-md border-0  font-semibold bg-indigo-600
+                                        rounded-md border-0  font-semibold bg-[#145e45]
                                         cursor-pointer"
                             >
                                 Choose file
@@ -66,7 +72,7 @@ export default function AddBanner() {
                                 data.bannerImage = selectedFile
                                 dispatch(PostBanner(data, setLoading))
                             }}
-                            className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            className="flex w-full justify-center rounded-md bg-[#145e45] px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-[#145e45] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         >
                            {
                                  loading ?
@@ -86,7 +92,7 @@ export default function AddBanner() {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col w-full lg:w-[50%] justify-center items-center px-6 py-6  bg-white lg:px-8">
+            <div className="flex flex-col w-full lg:w-[50%] justify-center items-center px-6 py-6  bg-[#ebf3eb60] lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm ">
                     <h2 className="mt-10 text-center text-4xl font-bold leading-9 text-gray-900 tracking-widest">
                         Preview
@@ -94,7 +100,7 @@ export default function AddBanner() {
                 </div>
                 <div className="mt-10 space-y-2.5 w-full lg:w-[400px] flex flex-col rounded-sm justify-center items-center">
                 <img src={file} className='w-full' />
-                <h1 className='text-center text-2xl font-bold text-[#5444e4] tracking-widest'>{data.title}</h1>
+                <h1 className='text-center text-2xl font-bold text-[#145e45] tracking-widest'>{data.title}</h1>
                 </div>
             </div>
         </div>

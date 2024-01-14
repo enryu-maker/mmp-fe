@@ -1,10 +1,10 @@
-import FlatList from 'flatlist-react/lib';
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import ReactPlayer from 'react-player/lazy'
-import { useSelector } from 'react-redux';
-export default function AdminReview() {
-    const navigate = useNavigate();
+import { Images } from '../Constants/Images'
+import { useSelector } from 'react-redux'
+import FlatList from 'flatlist-react/lib'
+import ReactPlayer from 'react-player'
+
+export default function Reviews() {
     const reviews = useSelector(state => state.Reducers.reviews)
     React.useEffect(() => {
         window.scrollTo({
@@ -13,13 +13,9 @@ export default function AdminReview() {
         })
     }, [])
     return (
-        <div className='bg-[#ebf3eb60] pt-8'>
-            <div className='flex flex-row justify-evenly items-center'>
-                <h1 className='text-center text-lg lg:text-4xl font-bold text-[#145e45] tracking-widest'>Active Reviews</h1>
-                <button
-                    onClick={() => navigate('/addreview')}
-                    className='ml-5 bg-[#145e45] text-white px-2 py-1 rounded-md'>Add Review</button>
-            </div>
+        <div className='bg-[#ebf3eb60] py-20'>
+            <img alt='header' className='object-cover w-full h-[200px] lg:h-[350px]' src={Images.city} />
+            <h1 className='text-xl lg:text-3xl font-poppins font-black my-5 text-center tracking-wider'>Real Homes, Real Stories: <span className='text-[#145e45] tracking-widest'> Hear What Our Happy Homeowners Have to Say!</span> </h1>
             <div className='flex flex-wrap w-full justify-evenly items-center snap-y mt-8'>
                 <FlatList
                     list={reviews}

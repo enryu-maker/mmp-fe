@@ -33,7 +33,7 @@ export default function Head() {
     return (
         <>
             <div className="min-h-full sticky top-0 z-30 ">
-                <Disclosure as="nav" className="bg-indigo-500">
+                <Disclosure as="nav" className="bg-[#145e45]">
                     {({ open }) => (
                         <>
                             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -57,8 +57,8 @@ export default function Head() {
                                                         }}
                                                         className={classNames(
                                                             count === index
-                                                                ? 'bg-white text-indigo-500 font-poppins font-medium'
-                                                                : 'text-white hover:bg-white hover:text-indigo-500',
+                                                                ? 'bg-white text-[#145e45] font-poppins font-medium'
+                                                                : 'text-white hover:bg-white hover:text-[#145e45]',
                                                             'rounded-md px-3 py-2 text-sm font-medium'
                                                         )}
                                                         aria-current={count === index ? 'page' : undefined}
@@ -119,9 +119,9 @@ export default function Head() {
                                             <span className="absolute -inset-0.5" />
                                             <span className="sr-only">Open main menu</span>
                                             {open ? (
-                                                <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                                                <XMarkIcon color='#145e45' className="block h-6 w-6" aria-hidden="true" />
                                             ) : (
-                                                <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                                                <Bars3Icon color='#145e45' className="block h-6 w-6" aria-hidden="true" />
                                             )}
                                         </Disclosure.Button>
                                     </div>
@@ -140,8 +140,8 @@ export default function Head() {
                                             }}
                                             className={classNames(
                                                 count === index
-                                                    ? 'bg-white text-indigo-500 font-poppins font-medium'
-                                                    : 'text-white hover:bg-white hover:text-indigo-500',
+                                                    ? 'bg-white text-[#145e45] font-poppins font-medium'
+                                                    : 'text-white hover:bg-white hover:text-[#145e45]',
                                                 'block rounded-md px-3 py-2 text-base font-medium'
                                             )}
                                             aria-current={count === index ? 'page' : undefined}
@@ -150,7 +150,7 @@ export default function Head() {
                                         </Disclosure.Button>
                                     ))}
                                 </div>
-                                <div className="border-t border-gray-700 pb-3 pt-4">
+                                <div className="border-t border-white pb-3 pt-4">
                                     <div className="flex items-center px-5">
                                         <div className="flex-shrink-0">
                                             <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" />
