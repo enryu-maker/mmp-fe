@@ -9,7 +9,7 @@ import FlatList from 'flatlist-react/lib';
 import BlogCard from '../Components/BlogCard';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactPlayer from 'react-player/lazy';
-import { GetPropertiesByCity } from '../Store/actions';
+import { GetPropertiesByCity, getLocation } from '../Store/actions';
 
 export default function Home() {
     const navigate = useNavigate();
@@ -21,6 +21,7 @@ export default function Home() {
     const nearBy = useSelector(state => state.Reducers.nearBy)
     const dispatch = useDispatch()
     React.useEffect(() => {
+        dispatch(getLocation())
         dispatch(GetPropertiesByCity(city))
         window.scrollTo({
             top: 0,

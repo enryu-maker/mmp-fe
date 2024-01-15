@@ -24,25 +24,25 @@ export default function Contact() {
                         onChange={(text) => {
                             setData({ ...data, name: text.target.value })
                         }}
-                        className='w-[92%] outline-none lg:w-[44%]  h-[50px] bg-white rounded-lg mb-2 lg:mb-5 px-2' placeholder='Name*' />
+                        className='w-[92%] border-gray-300 font-semibold outline-none lg:w-[44%]  h-[50px] bg-white rounded-lg mb-2 lg:mb-5 px-2' placeholder='Name*' />
                     <input
                         value={data.email}
                         onChange={(text) => {
                             setData({ ...data, email: text.target.value })
                         }}
-                        className='w-[92%] outline-none lg:w-[44%] h-[50px] bg-white rounded-lg mb-2 lg:mb-5 px-2' placeholder='Email*' />
+                        className='w-[92%] border-gray-300 font-semibold outline-none lg:w-[44%] h-[50px] bg-white rounded-lg mb-2 lg:mb-5 px-2' placeholder='Email*' />
                     <input value={data.phone}
                         onChange={(text) => {
                             setData({ ...data, phone: text.target.value })
-                        }} className='w-[92%] outline-none lg:w-[44%] h-[50px] bg-white rounded-lg mb-2 lg:mb-5 px-2' placeholder='Phone*' />
+                        }} className='w-[92%] border-gray-300 font-semibold outline-none lg:w-[44%] h-[50px] bg-white rounded-lg mb-2 lg:mb-5 px-2' placeholder='Phone*' />
                         <input value={data.subject}
                         onChange={(text) => {
                             setData({ ...data, subject: text.target.value })
-                        }} className='w-[92%] outline-none lg:w-[44%] h-[50px] bg-white rounded-lg mb-2 lg:mb-5 px-2' placeholder='Subject*' />
+                        }} className='w-[92%] border-gray-300 font-semibold outline-none lg:w-[44%] h-[50px] bg-white rounded-lg mb-2 lg:mb-5 px-2' placeholder='Subject*' />
                     <textarea value={data.message}
                         onChange={(text) => {
                             setData({ ...data, message: text.target.value })
-                        }} className='w-[92%] outline-none lg:w-[92%] h-[100px] px-2 bg-white rounded-lg mb-2 lg:mb-5' placeholder='Message*' />
+                        }} className='w-[92%] border-gray-300 font-semibold outline-none lg:w-[92%] h-[100px] px-2 bg-white rounded-lg mb-2 lg:mb-5' placeholder='Message*' />
                     <button
                         onClick={() => {
                             console.log(data)

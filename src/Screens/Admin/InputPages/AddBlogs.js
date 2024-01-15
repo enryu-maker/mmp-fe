@@ -25,8 +25,8 @@ export default function AddBlogs() {
         })
     }, [])
     return (
-        <div className="flex flex-col lg:flex-row w-full  justify-evenly items-start">
-            <div className="flex min-h-full flex-1 flex-col w-full justify-center px-6 py-6 bg-[#ebf3eb60] lg:px-8">
+        <div className="flex flex-col lg:flex-row w-full h-[100vh] bg-[#ebf3eb60]  justify-evenly items-start">
+            <div className="flex min-h-full flex-1 flex-col w-full justify-start px-6 py-6  lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <h2 className="mt-10 text-center text-4xl font-bold leading-9 text-gray-900 tracking-widest">
                         Add Blog
@@ -148,7 +148,7 @@ export default function AddBlogs() {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col w-full lg:w-[50%] justify-center items-center px-6 py-6  bg-[#ebf3eb60] lg:px-8">
+            <div className="flex flex-col w-full lg:w-[50%] justify-center items-center px-6 py-6  lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm ">
                     <h2 className="mt-10 text-center text-4xl font-bold leading-9 text-gray-900 tracking-widest">
                         Preview

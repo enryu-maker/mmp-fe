@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactPlayer from 'react-player/lazy'
 import { useDispatch } from 'react-redux';
 import { PostProperty } from '../../../Store/actions';
 import { Oval } from 'react-loader-spinner';
@@ -58,7 +57,7 @@ export default function AddProperty() {
                                 name="id"
                                 type="text"
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
+                                className="block border-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
@@ -74,7 +73,7 @@ export default function AddProperty() {
                                 name="name"
                                 type="text"
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
+                                className="block border-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
@@ -90,7 +89,7 @@ export default function AddProperty() {
                                 onChange={(e) => setData({ ...data, description: e.target.value })}
                                 type="text"
                                 required
-                                className="block w-full rounded-md border-0 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6 h-[180px]"
+                                className="block border-gray-300 w-full rounded-md border-0 py-2.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6 h-[180px]"
                             />
                         </div>
                     </div>
@@ -106,7 +105,7 @@ export default function AddProperty() {
                                 name="address"
                                 type="text"
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
+                                className="block border-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
@@ -119,10 +118,10 @@ export default function AddProperty() {
                                 value={data.type}
                                 onChange={
                                     (e) => setData({ ...data, type: e.target.value })
-                                } className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6">
+                                } className="block border-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6">
                                 <option value="">Select Property Type</option>
-                                <option value="Residental">Residental</option>
-                                <option value="Commercial">commercial</option>
+                                <option value="Residential">Residential</option>
+                                <option value="Commercial">Commercial</option>
                                 <option value="NA Plots">NA Plots</option>
                             </select>
                         </div>
@@ -139,7 +138,7 @@ export default function AddProperty() {
                                 name="developer"
                                 type="text"
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
+                                className="block w-full border-gray-300 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
@@ -155,12 +154,12 @@ export default function AddProperty() {
                                 name="rera"
                                 type="text"
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
+                                className="block w-full border-gray-300 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
                     <div className='lg:w-[40%] w-full'>
-                        <p htmlFor="possesion" className="block text-sm font-medium leading-6 text-gray-900">
+                        <p htmlFor="possesion" className="block border-gray-300 text-sm font-medium leading-6 text-gray-900">
                             Possesion Type
                         </p>
                         <div className="mt-2">
@@ -176,7 +175,7 @@ export default function AddProperty() {
                     </div>
                     {/* Appartment Details */}
                     <div className='lg:w-[40%] w-full'>
-                        <p htmlFor="map" className="block text-sm font-medium leading-6 text-gray-900">
+                        <p htmlFor="map" className="block  text-sm font-medium leading-6 text-gray-900">
                             Google Map Link
                         </p>
                         <div className="mt-2">
@@ -187,7 +186,7 @@ export default function AddProperty() {
                                 name="map"
                                 type="text"
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
+                                className="block w-full border-gray-300 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
@@ -227,7 +226,7 @@ export default function AddProperty() {
                                 type="text"
                                 placeholder='2 BHK | 3 BHK'
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
+                                className="block border-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
@@ -244,7 +243,7 @@ export default function AddProperty() {
                                 type="text"
                                 placeholder='Water | Electricity | Parking'
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
+                                className="block border-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
@@ -261,7 +260,7 @@ export default function AddProperty() {
                                 type="text"
                                 placeholder='Name | Contact | Email | Website'
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
+                                className="block border-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>
@@ -277,7 +276,7 @@ export default function AddProperty() {
                                 name="city"
                                 type="text"
                                 required
-                                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
+                                className="block border-gray-300 w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#145e45] sm:text-sm sm:leading-6"
                             />
                         </div>
                     </div>

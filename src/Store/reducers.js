@@ -7,6 +7,7 @@ const initialState = {
     properties: [],
     access: null,
     city: null,
+    search: []
 }
 
 export default (state = initialState, action) => {
@@ -26,6 +27,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 city: action.payload
+            }
+        case "GET_SEARCH":
+            return {
+                ...state,
+                search: action.payload
             }
         case "GET_SUGGESTIONS":
             return {

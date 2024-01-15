@@ -1,8 +1,12 @@
 import React from 'react'
 import { FaInstagram, FaFacebookSquare, FaLinkedin, FaYoutube } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Images } from '../Constants/Images';
+import { useDispatch } from 'react-redux';
+import { Getbytype } from '../Store/actions';
 export default function Footer() {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
     return (
         <div className='bg-[#145e45] flex flex-col justify-center items-center'>
             <div
@@ -33,17 +37,42 @@ export default function Footer() {
 
                 <div className="flex lg:flex-1 flex-col justify-start mt-5 space-y-2   ">
                     <h1 className='text-xl lg:text-xl font-poppins font-bold self-start text-start'>Properties</h1>
-                    <button className='text-sm lg:text-base font-poppins font-medium self-start text-start text-white tracking-widest rounded-md'>Residential</button>
-                    <button className='text-sm lg:text-base font-poppins font-medium self-start text-start text-white tracking-widest rounded-md'>Commercial</button>
-                    <button className='text-sm lg:text-base font-poppins font-medium self-start text-start text-white tracking-widest rounded-md'>NA Plots</button>
+                    <button
+                        onClick={() => {
+                            dispatch(Getbytype('Residential'))
+                            navigate('/search/residential')
+                        }}
+                        className='text-sm lg:text-base font-poppins font-medium self-start text-start text-white tracking-widest rounded-md'>Residential</button>
+                    <button
+                        onClick={() => {
+                            dispatch(Getbytype('Commercial'))
+                            navigate('/search/commercial')
+                        }}
+                        className='text-sm lg:text-base font-poppins font-medium self-start text-start text-white tracking-widest rounded-md'>Commercial</button>
+                    <button
+                        onClick={() => {
+                            dispatch(Getbytype('NA Plots'))
+                            navigate('/search/naplots')
+                        }}
+                        className='text-sm lg:text-base font-poppins font-medium self-start text-start text-white tracking-widest rounded-md'>NA Plots</button>
                 </div>
                 <div className="flex lg:flex-1 flex-col justify-start mt-5 space-y-2  ">
                     <h1 className='text-xl lg:text-xl font-poppins font-bold self-start text-start'>Site Maps</h1>
-                    <button className='text-sm lg:text-base font-poppins font-medium self-start text-start text-white tracking-widest rounded-md'>Home</button>
-                    <button className='text-sm lg:text-base font-poppins font-medium self-start text-start text-white tracking-widest rounded-md'>Properties</button>
-                    <button className='text-sm lg:text-base font-poppins font-medium self-start text-start text-white tracking-widest rounded-md'>About Us</button>
-                    <button className='text-sm lg:text-base font-poppins font-medium self-start text-start text-white tracking-widest rounded-md'>Blog</button>
-                    <button className='text-sm lg:text-base font-poppins font-medium self-start text-start text-white tracking-widest rounded-md'>Contact Us</button>
+                    <Link
+                        to={'/'}
+                        className='text-sm lg:text-base font-poppins font-medium self-start text-start text-white tracking-widest rounded-md'>Home</Link>
+                    <Link
+                        to={'/properties'}
+                        className='text-sm lg:text-base font-poppins font-medium self-start text-start text-white tracking-widest rounded-md'>Properties</Link>
+                    <Link
+                        to={'/about'}
+                        className='text-sm lg:text-base font-poppins font-medium self-start text-start text-white tracking-widest rounded-md'>About Us</Link>
+                    <Link
+                        to={'/blog'}
+                        className='text-sm lg:text-base font-poppins font-medium self-start text-start text-white tracking-widest rounded-md'>Blog</Link>
+                    <Link
+                        to={'/contact'}
+                        className='text-sm lg:text-base font-poppins font-medium self-start text-start text-white tracking-widest rounded-md'>Contact Us</Link>
                 </div>
                 <div className="flex lg:flex-1 flex-col justify-start mt-5 space-y-2 ">
                     <h1 className='text-xl lg:text-xl font-poppins font-bold self-start text-start'>Contact Us</h1>

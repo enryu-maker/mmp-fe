@@ -4,7 +4,6 @@ import Header from "./Components/Header";
 import Properties from "./Screens/Properties";
 import About from "./Screens/About";
 import Blog from "./Screens/Blog";
-
 import Contact from "./Screens/Contact";
 import Footer from "./Components/Footer";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,13 +19,15 @@ import AddBlogs from "./Screens/Admin/InputPages/AddBlogs";
 import AddReview from "./Screens/Admin/InputPages/AddReview";
 import AddProperty from "./Screens/Admin/InputPages/AddProperty";
 import React from "react";
-import { GetBanner, GetBlogs, GetProperties, GetReviews, GetSuggestedProperties, Init, getLocation } from "./Store/actions";
+import { GetBanner, GetBlogs, GetProperties, GetPropertiesByCity, GetReviews, GetSuggestedProperties, Init, getLocation } from "./Store/actions";
 import AddBanner from "./Screens/Admin/InputPages/AddBanner";
 import BlogInfo from "./Screens/InfoPages/BlogInfo";
 import PropertyInfo from "./Screens/InfoPages/PropertyInfo";
 import Reviews from "./Screens/Reviews";
+import Search from "./Screens/Search";
 export default function App() {
   const dispatch = useDispatch();
+  const city = useSelector(state => state.Reducers.city)
   React.useEffect(() => {
     dispatch(getLocation())
     dispatch(Init())
@@ -35,6 +36,7 @@ export default function App() {
     dispatch(GetBanner())
     dispatch(GetProperties())
     dispatch(GetSuggestedProperties())
+    dispatch(GetPropertiesByCity(city))
   }, [])
   const access = useSelector(state => state.Reducers.access);
   return (
@@ -53,6 +55,7 @@ export default function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/login" element={<Login />} />
               <Route path="/reviews" element={<Reviews />} />
+              <Route path="/search/:search" element={<Search />} />
               <Route path="/*" element={<Error />} />
             </Routes>
             <Footer />

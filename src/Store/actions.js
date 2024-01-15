@@ -15,12 +15,11 @@ export const getLocation = () => {
     return async dispatch => {
         if ("geolocation" in navigator) {
             navigator.geolocation.getCurrentPosition(function (position) {
-                axios.get(`https://api.geoapify.com/v1/geocode/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}&apiKey=ed8980477f3042a696497425b081fa6a`).
+                axios.get(baseURL + '/getnearby/'+ position.coords.latitude + '/' + position.coords.longitude).
                     then((res) => {
-                        const city = res?.data?.features[0]?.properties?.city;
                         dispatch({
-                            type: 'GET_LOCATION',
-                            payload: city,
+                            type: 'GET_NEAR_BY',
+                            payload: res.data,
                         })
                     }
                     )
@@ -190,18 +189,18 @@ export const PostProperty = (data, setLoading) => {
     })
 
     return async dispatch => {
-            await axiosIns.post('/postproperty/', formData).then(res => {
-                if (res.status === 201) {
-                    console.log(res)
-                    // alert(res.data.message)
-                    setLoading(false)
-                }
-                else {
-                    console.log(res)
-                    setLoading(false)
-                }
+        await axiosIns.post('/postproperty/', formData).then(res => {
+            if (res.status === 201) {
+                console.log(res)
+                // alert(res.data.message)
+                setLoading(false)
             }
-            )
+            else {
+                console.log(res)
+                setLoading(false)
+            }
+        }
+        )
     }
 }
 
@@ -219,7 +218,7 @@ export const GetProperties = () => {
     }
 }
 
-export const GetPropertiesById = (id,setData,setLoading) => {
+export const GetPropertiesById = (id, setData, setLoading) => {
     setLoading(true)
     return async dispatch => {
         await axios.get(baseURL + '/getbyid/' + id).then(res => {
@@ -249,12 +248,27 @@ export const GetPropertiesByCity = (city) => {
     }
 }
 
-export const SearchProperties = (data,setData,setLoading) => {
+export const Getbytype = (data) => {
+    console.log(data)
+    return async dispatch => {
+        await axios.get(baseURL + '/getbytype/' + data).then(res => {
+            if (res.status === 200) {
+                console.log(res.data)
+                dispatch({ type: 'GET_SEARCH', payload: res.data })
+            }
+            else {
+                console.log(res)
+            }
+        })
+    }
+}
+
+export const SearchProperties = (data, setProperty, setLoading) => {
     setLoading(true)
     return async dispatch => {
-        await axios.get(baseURL + '/search/'+ data).then(res => {
+        await axios.get(baseURL + '/search/' + data).then(res => {
             if (res.status === 200) {
-                setData(res.data)
+                setProperty(res.data)
                 setLoading(false)
             }
             else {

@@ -21,8 +21,8 @@ export default function AddBanner() {
         })
     }, [])
   return (
-    <div className="flex flex-col lg:flex-row w-full  justify-evenly items-start">
-            <div className="flex min-h-full flex-1 flex-col w-full justify-center px-6 py-6 bg-[#ebf3eb60] lg:px-8">
+    <div className="flex flex-col lg:flex-row w-full bg-[#ebf3eb60] h-[100vh]  justify-evenly items-start">
+            <div className="flex min-h-full flex-1 flex-col w-full justify-start px-6 py-6  lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                     <h2 className="mt-10 text-center text-4xl font-bold leading-9 text-gray-900 tracking-widest">
                         Add Banner
@@ -92,7 +92,7 @@ export default function AddBanner() {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col w-full lg:w-[50%] justify-center items-center px-6 py-6  bg-[#ebf3eb60] lg:px-8">
+            <div className="flex flex-col w-full lg:w-[50%] justify-center items-center px-6 py-6  lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm ">
                     <h2 className="mt-10 text-center text-4xl font-bold leading-9 text-gray-900 tracking-widest">
                         Preview
