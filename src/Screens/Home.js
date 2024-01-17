@@ -48,7 +48,7 @@ export default function Home() {
                 {
                     banner?.map((item, index) => (
                         <div>
-                            <img className='object-cover w-full h-[250px] lg:h-[450px]' src={"http://localhost:8080/" + item?.bannerImage} />
+                            <img className='object-cover w-full h-[250px] lg:h-[450px]' src={"https://api-nerdtech.makemyproperties.co.in/" + item?.bannerImage} />
                             <button
                                 onClick={() => {
                                     navigate('/propertyinfo/' + item?._id, {

@@ -47,7 +47,7 @@ export default function PropertyInfo() {
                     </div>
                     :
                     <>
-                        <img className='object-cover w-full h-[220px] lg:h-[350px]' src={"http://localhost:8080/" + property?.propertyImages[index]} />
+                        <img className='object-cover w-full h-[220px] lg:h-[350px]' src={"https://api-nerdtech.makemyproperties.co.in/" + property?.propertyImages[index]} />
                         <div className='flex flex-row w-full self-center items-start justify-start'>
                             {
                                 property?.propertyImages.map((item, index) => {
@@ -56,7 +56,7 @@ export default function PropertyInfo() {
                                             onClick={() => {
                                                 setIndex(index)
                                             }}
-                                            key={index} className='object-cover w-[50px] h-[50px] lg:w-[120px] lg:h-[120px] m-2 lg:m-5' src={"http://localhost:8080/" + item} />
+                                            key={index} className='object-cover w-[50px] h-[50px] lg:w-[120px] lg:h-[120px] m-2 lg:m-5' src={"https://api-nerdtech.makemyproperties.co.in/" + item} />
                                     )
                                 })
                             }
