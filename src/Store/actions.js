@@ -56,8 +56,32 @@ export const LoginAction = (email, password, setLoading, navigate) => {
             else {
                 console.log(res)
                 setLoading(false)
+                toast.error("Invalid Credentials", {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    theme: "light",
+                    progress: undefined,
+                });
             }
-        })
+        }).catch(err => {
+            console.log(err)
+            setLoading(false)
+            toast.error("Invalid Credentials", {
+                position: "top-center",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                theme: "light",
+                progress: undefined,
+            });
+        }
+        )
     }
 }
 
