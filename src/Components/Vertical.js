@@ -17,7 +17,7 @@ export default function Vertical({
             <img src={"https://api-nerdtech.makemyproperties.co.in/" + item?.propertyImages[0]} className='h-[95%] w-[40%] bg-black rounded-lg' />
             <div className='flex flex-col h-[95%] w-[55%] justify-between items-start p-2'>
                 <h3 className='text-ms w-[90%] font-nunito font-black self-start text-start'>{item?.name}</h3>
-                <h3 className='text-xs w-[90%] font-nunito font-bold self-start text-start text-[#145e45]'>RERA No : {item?.reraNo}</h3>
+                <h3 className='text-xs w-[90%] font-nunito overflow-hidden font-bold self-start text-start text-[#145e45]'>RERA No : {item?.reraNo}</h3>
                 <div className='flex w-[90%] justify-between items-start'>
                     <div className='flex items-center'>
                         <TbBed className='text-[#145e45]' />
