@@ -1,7 +1,7 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router-dom'
-import { GetPropertiesById } from '../../Store/actions'
+import { GetPropertiesById, deleteProperty, submitContact } from '../../Store/actions'
 import { Oval } from 'react-loader-spinner'
 export default function PropertyInfo() {
     const { state } = useLocation()
@@ -16,6 +16,7 @@ export default function PropertyInfo() {
     const [property, setProperty] = React.useState()
     const [loading, setLoading] = React.useState(false)
     const dispatch = useDispatch()
+    const access = useSelector(state => state.Reducers.access)
     React.useEffect(() => {
         dispatch(GetPropertiesById(state?.id, setProperty, setLoading))
         window.scrollTo({
@@ -24,13 +25,13 @@ export default function PropertyInfo() {
         })
     }, [])
     return (
-        <div className='bg-[#ebf3eb60] flex flex-col py-20  justify-center items-center'>
+        <div className='bg-[#ebf3eb60] py-20 flex flex-col justify-center items-center'>
             <div className='flex bg-[#ebf3eb60] flex-row w-full ml-4 lg:ml-0 lg:w-[88%] justify-start items-start space-x-2'>
                 <button
                     onClick={() => {
                         window.history.back()
                     }}
-                    className='text-xs  font-poppins font-light my-5 text-start text-black tracking-widest hover:text-[#5444e4] hover:font-bold'>Property</button>
+                    className='text-xs  font-nunito font-light my-5 text-start text-black tracking-widest hover:text-[#5444e4] hover:font-bold'>Property</button>
                 <p className='text-xs  font-light my-5 text-start text-[#5444e4] tracking-widest'>/</p>
                 <p className='text-xs font-light my-5 text-start tracking-widest'>{property?.id}</p>
             </div>
@@ -46,7 +47,7 @@ export default function PropertyInfo() {
                     </div>
                     :
                     <>
-                        <img className='object-cover w-full h-[200px] lg:h-[350px]' src={"http://localhost:8080/" + property?.propertyImages[index]} />
+                        <img className='object-cover w-full h-[220px] lg:h-[350px]' src={"http://localhost:8080/" + property?.propertyImages[index]} />
                         <div className='flex flex-row w-full self-center items-start justify-start'>
                             {
                                 property?.propertyImages.map((item, index) => {
@@ -186,14 +187,28 @@ export default function PropertyInfo() {
                                         />
                                         <button
                                             onClick={() => {
-                                                console.log(data)
+                                                dispatch(submitContact(data, setLoading))
                                             }}
-                                            className='w-full lg:w-[34%] h-[50px] bg-[#145e45] text-lg rounded-lg text-white font-bold my-5 lg:mb-5 hover:bg-[#5444e490]'>Send Enquiry</button>
+                                            className='w-full  h-[50px] bg-[#145e45] text-lg rounded-lg text-white font-bold  px-5 hover:bg-[#5444e490]'>
+                                            {
+                                                loading ? <Oval color='#fff' height={20} width={20} /> : 'Submit Enquiry'
+                                            }
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </>
+            }
+            {
+                access != null?
+                <button 
+                onClick={() => {
+                    dispatch(deleteProperty(property?.id, setLoading))
+                }}
+                className='my-5 right-5 bg-red-500 text-white font-nunito font-bold text-lg rounded-lg px-5 py-2 hover:bg-[#5444e490]'>Delete Property</button>
+                :
+                null
             }
         </div>
     )

@@ -3,6 +3,7 @@ import React from 'react'
 import { LoginAction } from "../../Store/actions"
 import { Oval } from "react-loader-spinner"
 import { useNavigate } from "react-router-dom"
+import { Images } from "../../Constants/Images"
 export default function Login() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -21,11 +22,14 @@ export default function Login() {
         <>
             <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 mt-20 bg-[#ebf3eb60] lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                    <img
-                        className="mx-auto h-10 w-auto"
-                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                        alt="Your Company"
-                    />
+                <div className="flex lg:flex-1 flex-col justify-center items-center space-x-2 ">
+                    <a href="#" className="-m-1.5 p-1.5">
+                        <span className="sr-only">Your Company</span>
+                        <img className="w-auto h-12 " src={Images.logo1} alt="" />
+                    </a>
+                    <p className='text-lg font-nunito m-0 p-0 font-black text-[#145e45] text-end tracking-widest'>Make <span className='text-sm font-normal'>My</span> Property</p>
+
+                </div>
                     <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                         Sign in to your admin account
                     </h2>

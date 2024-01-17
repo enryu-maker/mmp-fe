@@ -15,11 +15,12 @@ export default function Reviews() {
     return (
         <div className='bg-[#ebf3eb60] py-20'>
             <img alt='header' className='object-cover w-full h-[200px] lg:h-[350px]' src={Images.city} />
-            <h1 className='text-xl lg:text-3xl font-poppins font-black my-5 text-center tracking-wider'>Real Homes, Real Stories: <span className='text-[#145e45] tracking-widest'> Hear What Our Happy Homeowners Have to Say!</span> </h1>
+            <h1 className='text-xl lg:text-3xl font-nunito font-black my-5 text-center tracking-wider'>Real Homes, Real Stories: <span className='text-[#145e45] tracking-widest'> Hear What Our Happy Homeowners Have to Say!</span> </h1>
             <div className='flex flex-wrap w-full justify-evenly items-center snap-y mt-8'>
                 <FlatList
                     list={reviews}
-                    renderItem={(item, index) => <ReactPlayer width={300} height={180} className="w-full lg:w-[220px]" url={item.link} />
+                    renderItem={(item, index) => 
+                    <ReactPlayer width={300} height={180} className="w-full lg:w-[220px]" url={item.link} />
                     }
                     renderWhenEmpty={() =>
                         <div className='flex flex-col items-center justify-center'>

@@ -57,7 +57,7 @@ export default function Head() {
                                                         }}
                                                         className={classNames(
                                                             count === index
-                                                                ? 'bg-white text-[#145e45] font-poppins font-medium'
+                                                                ? 'bg-white text-[#145e45] font-nunito font-medium'
                                                                 : 'text-white hover:bg-white hover:text-[#145e45]',
                                                             'rounded-md px-3 py-2 text-sm font-medium'
                                                         )}
@@ -140,7 +140,7 @@ export default function Head() {
                                             }}
                                             className={classNames(
                                                 count === index
-                                                    ? 'bg-white text-[#145e45] font-poppins font-medium'
+                                                    ? 'bg-white text-[#145e45] font-nunito font-medium'
                                                     : 'text-white hover:bg-white hover:text-[#145e45]',
                                                 'block rounded-md px-3 py-2 text-base font-medium'
                                             )}

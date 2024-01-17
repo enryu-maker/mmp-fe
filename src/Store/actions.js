@@ -292,3 +292,176 @@ export const GetSuggestedProperties = () => {
         })
     }
 }
+
+export const submitContact = (data, setLoading) => {
+    setLoading(true)
+    return async dispatch => {
+        await axios.post('https://formspree.io/f/mvoegweb', data).then(res => {
+            if (res.status === 201) {
+                console.log(res)
+                setLoading(false)
+                toast.success("Enquiry Sent Sucessfully", {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
+            else {
+                console.log(res)
+                setLoading(false)
+                toast.error("Some Went Wrong", {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
+        }
+        )
+    }
+}
+
+export const deleteProperty = (id) => {
+    return async dispatch => {
+        await axiosIns.delete(baseURL + '/deleteproperty/' + id).then(res => {
+            if (res.status === 200) {
+                console.log(res)
+                dispatch(GetProperties())
+                toast.success(res.data.message, {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
+            else {
+                console.log(res)
+                toast.error("Some Went Wrong", {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
+        })
+    }
+}
+
+export const deleteBlog = (id) => {
+    return async dispatch => {
+        await axiosIns.delete(baseURL + '/deleteblog/' + id).then(res => {
+            if (res.status === 200) {
+                console.log(res)
+                dispatch(GetBlogs())
+                toast.success(res.data.message, {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
+            else {
+                console.log(res)
+                toast.error("Some Went Wrong", {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
+        })
+    }
+}
+
+export const deleteReview = (id) => {
+    return async dispatch => {
+        await axiosIns.delete(baseURL + '/deletecustomerreview/' + id).then(res => {
+            if (res.status === 200) {
+                console.log(res)
+                dispatch(GetReviews())
+                toast.success(res.data.message, {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
+            else {
+                console.log(res)
+                toast.error("Some Went Wrong", {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
+        })
+    }
+}
+
+export const deleteBanner = (id) => {
+    return async dispatch => {
+        await axiosIns.delete(baseURL + '/deletebanner/' + id).then(res => {
+            if (res.status === 200) {
+                console.log(res)
+                dispatch(GetBanner())
+                toast.success(res.data.message, {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
+            else {
+                console.log(res)
+                toast.error("Some Went Wrong", {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
+        })
+    }
+}

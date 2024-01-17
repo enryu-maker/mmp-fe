@@ -1,5 +1,9 @@
 import React from 'react'
 import { Images } from '../Constants/Images'
+import { Helmet } from 'react-helmet'
+import { useDispatch } from 'react-redux'
+import { submitContact } from '../Store/actions'
+import { Oval } from 'react-loader-spinner'
 export default function Contact() {
     const [data, setData] = React.useState({
         name: '',
@@ -8,15 +12,21 @@ export default function Contact() {
         message: '',
         subject: ''
     })
+    const [loading, setLoading] = React.useState(false)
     React.useEffect(() => {
         window.scrollTo({
             top: 0,
             behavior: "smooth"
         })
     }, [])
+    const dispatch = useDispatch()
     return (
-        <div className='bg-[#ebf3eb60] pt-20'>
-            <img className='object-cover w-full h-[200px] lg:h-[350px]' src={Images.city} />
+        <div className='bg-[#ebf3eb60] pt-20 font-nunito'>
+            <Helmet>
+                <title>Get in Touch with MakeMyProperty - Your Real Estate Partners</title>
+                <meta name="description" content="Contact MakeMyProperty for personalized assistance in your property journey. Reach out to our dedicated team for inquiries, consultations, and expert guidance." />
+            </Helmet>
+            <img className='object-contain' src={Images[4]} />
             <div className='flex flex-col lg:flex-row justify-evenly items-start py-10'>
                 <div className='flex flex-wrap justify-evenly items-center w-full lg:w-[60%]'>
                     <input
@@ -35,7 +45,7 @@ export default function Contact() {
                         onChange={(text) => {
                             setData({ ...data, phone: text.target.value })
                         }} className='w-[92%] border-gray-300 font-semibold outline-none lg:w-[44%] h-[50px] bg-white rounded-lg mb-2 lg:mb-5 px-2' placeholder='Phone*' />
-                        <input value={data.subject}
+                    <input value={data.subject}
                         onChange={(text) => {
                             setData({ ...data, subject: text.target.value })
                         }} className='w-[92%] border-gray-300 font-semibold outline-none lg:w-[44%] h-[50px] bg-white rounded-lg mb-2 lg:mb-5 px-2' placeholder='Subject*' />
@@ -45,9 +55,13 @@ export default function Contact() {
                         }} className='w-[92%] border-gray-300 font-semibold outline-none lg:w-[92%] h-[100px] px-2 bg-white rounded-lg mb-2 lg:mb-5' placeholder='Message*' />
                     <button
                         onClick={() => {
-                            console.log(data)
+                            dispatch(submitContact(data, setLoading))
                         }}
-                        className='w-[92%] lg:w-[34%] h-[50px] bg-[#145e45] text-lg rounded-lg text-white font-bold my-5 lg:mb-5 hover:bg-[#5444e490]'>Send Enquiry</button>
+                        className='w-[92%] flex justify-center items-center lg:w-[34%] h-[50px] bg-[#145e45] text-lg rounded-lg text-white font-bold my-5 lg:mb-5 '>
+                        {
+                            loading ? <Oval color='#fff' height={20} width={20} /> : 'Submit Enquiry'
+                        }
+                    </button>
                 </div>
                 <div className='flex flex-col items-center justify-center w-full lg:w-[40%]'>
                     <h1 className='lg:text-4xl w-[88%] text-start text-3xl font-black text-[#145e45] tracking-widest'>Get In Touch</h1>
@@ -58,7 +72,11 @@ export default function Contact() {
                         </svg>
                         <div className='flex flex-col items-start justify-start ml-2'>
                             <h1 className='text-start font-black text-gray-500'>Drop A Mail</h1>
-                            <h3 className='text-start ml-2 text-gray-500'>contact@mmp.com</h3>
+                            <button
+                                onClick={() => {
+                                    window.open('mailto:info@makemyproperties.co.in')
+                                }}
+                                className='text-start ml-2 text-gray-500'>info@makemyproperties.co.in</button>
                         </div>
                     </div>
                     <div className='flex flex-row items-start justify-start w-[88%] mt-5'>
@@ -67,10 +85,13 @@ export default function Contact() {
                         </svg>
                         <div className='flex flex-col items-start justify-start ml-2'>
                             <h1 className='text-start font-black text-gray-500'>Call Us</h1>
-                            <h3 className='text-start ml-2 text-gray-500'>+91 9876543210</h3>
+                            <button
+                                onClick={() => {
+                                    window.open('tel:+919029263511')
+                                }}
+                                className='text-start ml-2 text-gray-500'>+91 9029263511</button>
                         </div>
                     </div>
-
                 </div>
             </div>
             <div className='flex flex-col items-center self-center justify-center pb-8'>

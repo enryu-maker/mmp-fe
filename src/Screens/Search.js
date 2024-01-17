@@ -24,7 +24,7 @@ export default function Search() {
         <div className='bg-[#ebf3eb60] pt-20 flex flex-col justify-center items-center'>
             <img className='object-cover w-full h-[200px] lg:h-[350px]' src={Images.city} />
             <div className=' p-2 flex flex-col items-center justify-center w-full'>
-                <h1 className='text-xl lg:text-4xl font-poppins font-black my-5 text-center capitalize'>{path.pathname.split('/')[2]}<span className='text-[#145e45] tracking-widest'> Property</span> </h1>
+                <h1 className='text-xl lg:text-4xl font-nunito font-black my-5 text-center capitalize'>{path.pathname.split('/')[2]}<span className='text-[#145e45] tracking-widest'> Property</span> </h1>
             </div>
             <div className='flex py-5 flex-wrap w-full lg:w-[88%] items-center justify-evenly '>
                 {

@@ -7,6 +7,7 @@ import FlatList from 'flatlist-react/lib';
 import { useDispatch, useSelector } from 'react-redux';
 import { Getbytype, SearchProperties, getLocation } from '../Store/actions';
 import { Oval } from 'react-loader-spinner';
+import { Helmet } from 'react-helmet';
 export default function Properties() {
     const [search, setSearch] = React.useState('');
     const nearBy = useSelector(state => state.Reducers.nearBy)
@@ -43,9 +44,13 @@ export default function Properties() {
     }, [])
     return (
         <div className='bg-[#ebf3eb60] pt-20 flex flex-col justify-center items-center'>
-            <img className='object-cover w-full h-[200px] lg:h-[350px]' src={Images.city} />
+            <Helmet>
+                <title>Browse Our Exclusive Property Listings | MakeMyProperty</title>
+                <meta name="description" content="Explore a curated collection of properties for sale. Find your ideal home with MakeMyProperty's diverse listings, detailed descriptions, and stunning visuals." />
+            </Helmet>
+            <img className='object-contain w-full ' src={Images.image} />
             <div className=' p-2 flex flex-col items-center justify-center w-full'>
-                <h1 className='text-xl lg:text-4xl font-poppins font-black my-5 text-center'>Find your Prefect <span className='text-[#145e45] tracking-widest'>HOME</span> </h1>
+                <h1 className='text-xl lg:text-4xl font-nunito font-black my-5 text-center'>Find your Prefect <span className='text-[#145e45] tracking-widest'>HOME</span> </h1>
                 <div className='flex w-full flex-row lg:flex-row items-center justify-evenly lg:justify-center space-x-2'>
                     <input type='text' value={search}
                         onChange={(text) => {
@@ -56,7 +61,7 @@ export default function Properties() {
                         onClick={() => {
                             searchProperty()
                         }}
-                        className='flex justify-center items-center bg-[#145e45] text-white font-poppins font-medium h-[40px] w-[15%] lg:h-[50px] lg:w-[50px] rounded-lg lg:ml-5'>
+                        className='flex justify-center items-center bg-[#145e45] text-white font-nunito font-medium h-[40px] w-[15%] lg:h-[50px] lg:w-[50px] rounded-lg lg:ml-5'>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                         </svg>

@@ -2,10 +2,14 @@ import FlatList from 'flatlist-react/lib';
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import ReactPlayer from 'react-player/lazy'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteReview } from '../../Store/actions';
+import { Oval } from 'react-loader-spinner';
 export default function AdminReview() {
     const navigate = useNavigate();
     const reviews = useSelector(state => state.Reducers.reviews)
+    const dispatch = useDispatch();
+    const [loading, setLoading] = React.useState(false)
     React.useEffect(() => {
         window.scrollTo({
             top: 0,
@@ -23,7 +27,30 @@ export default function AdminReview() {
             <div className='flex flex-wrap w-full justify-evenly items-center snap-y mt-8'>
                 <FlatList
                     list={reviews}
-                    renderItem={(item, index) => <ReactPlayer width={300} height={180} className="w-full lg:w-[220px]" url={item.link} />
+                    renderItem={(item, index) =>
+                        <div className='flex flex-col bg-white shadow-md justify-center items-center'>
+                            <ReactPlayer width={300} height={180} className="w-full lg:w-[220px]" url={item.link} />
+                            <button
+                                onClick={() => {
+                                    dispatch(deleteReview(item.id, setLoading))
+                                }}
+                                className='bg-red-500 font-nunito text-white px-2 py-1 self-end'>
+                                    {
+                                        loading?
+                                        <div className='flex flex-row justify-center items-center'>
+                                            <Oval
+                                                height={20}
+                                                width={20}
+                                                color="white"
+                                                className='mr-2'
+                                            />
+                                            <p>Deleting</p>
+                                        </div>
+                                        :
+                                        "Delete"
+                                    }
+                                </button>
+                        </div>
                     }
                     renderWhenEmpty={() =>
                         <div className='flex flex-col items-center justify-center'>

@@ -3,6 +3,7 @@ import { Images } from '../Constants/Images'
 import BlogCard from '../Components/BlogCard'
 import { useSelector } from 'react-redux'
 import FlatList from 'flatlist-react/lib'
+import { Helmet } from 'react-helmet'
 
 export default function Blog() {
     const blogs = useSelector(state => state.Reducers.blog)
@@ -14,7 +15,11 @@ export default function Blog() {
     }, [])
     return (
         <div className='bg-[#ebf3eb60] pt-20'>
-            <img className='object-cover w-full h-[200px] lg:h-[350px]' src={Images.city} />
+            <Helmet>
+                <title>Stay Informed with MakeMyProperty's Real Estate Insights</title>
+                <meta name="description" content="Read our latest blogs for valuable insights into the real estate market, property trends, and expert advice. Stay informed with MakeMyProperty's informative and engaging content." />
+            </Helmet>
+            <img className='object-contain' src={Images[1]} />
             <div className='flex flex-wrap w-full justify-evenly items-center snap-y mt-8'>
                 <FlatList
                     list={blogs}
