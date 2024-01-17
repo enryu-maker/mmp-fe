@@ -111,10 +111,29 @@ export const PostReview = (data, setLoading) => {
             if (res.status === 201) {
                 console.log(res)
                 setLoading(false)
+                toast.success(res.data.message, {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
             }
             else {
                 console.log(res)
                 setLoading(false)
+                toast.error("Some Went Wrong", {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             }
         }
         )
@@ -144,10 +163,30 @@ export const PostBanner = (data, setLoading) => {
             if (res.status === 201) {
                 console.log(res)
                 setLoading(false)
+                toast.success(res.data.message, {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
             }
             else {
                 console.log(res)
                 setLoading(false)
+                toast.error("Some Went Wrong", {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
             }
         }
         )
@@ -194,10 +233,30 @@ export const PostProperty = (data, setLoading) => {
                 console.log(res)
                 // alert(res.data.message)
                 setLoading(false)
+                toast.success(res.data.message, {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
             }
             else {
                 console.log(res)
                 setLoading(false)
+                toast.error("Some Went Wrong", {
+                    position: "top-center",
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                });
             }
         }
         )
