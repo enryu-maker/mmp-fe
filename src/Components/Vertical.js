@@ -14,7 +14,7 @@ export default function Vertical({
                 })
             }}
             className='h-[180px] font-nunito w-[92%] lg:w-[350px] lg:h-[200px] bg-white rounded-lg shadow-lg flex flex-row justify-evenly items-center mb-5 '>
-            <img src={"http://127.0.0.1:8080/" + item?.propertyImages[0]} className='h-[95%] w-[40%] bg-black rounded-lg' />
+            <img src={"https://api-nerdtech.makemyproperties.co.in/" + item?.propertyImages[0]} className='h-[95%] w-[40%] bg-black rounded-lg' />
             <div className='flex flex-col h-[95%] w-[55%] justify-between items-start p-2'>
                 <h3 className='text-ms w-[90%] font-nunito font-black self-start text-start'>{item?.name}</h3>
                 <h3 className='text-xs w-[90%] font-nunito overflow-hidden font-bold self-start text-start text-[#145e45]'>RERA No : {item?.reraNo}</h3>

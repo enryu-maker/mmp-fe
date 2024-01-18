@@ -28,7 +28,7 @@ export default function Banner() {
                     list={banner}
                     renderItem={(item, index) =>
                         <div className='flex flex-col bg-white shadow-md justify-center items-center'>
-                            <img className="w-[92%] mb-2 border object-cover h-[220px] rounded-lg lg:w-[350px]" src={'http://127.0.0.1:8080/' + item.bannerImage} alt="" />
+                            <img className="w-[92%] mb-2 border object-cover h-[220px] rounded-lg lg:w-[350px]" src={'https://api-nerdtech.makemyproperties.co.in/' + item.bannerImage} alt="" />
                             <button
                                 onClick={() => {
                                     dispatch(deleteBanner(item.id, setLoading))
