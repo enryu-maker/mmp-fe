@@ -13,7 +13,7 @@ export default function Horizontal({
                 })
             }}
             className='h-[240px] font-nunito mb-5 shadow-lg lg:mb-0 lg:h-[300px] w-[180px] lg:w-[250px] bg-white rounded-lg flex flex-col items-center justify-between py-1 lg:py-2'>
-            <img src={"http://localhost:8080/" + item?.propertyImages[0]} className='h-[120px] lg:h-[150px] w-[92%] mt-2 rounded-lg' />
+            <img src={"http://127.0.0.1:8080/" + item?.propertyImages[0]} className='h-[120px] lg:h-[150px] w-[92%] mt-2 rounded-lg' />
             <h3 className='text-xs lg:text-lg w-[90%] font-nunito font-black self-center text-start '>{item?.name}</h3>
             <h3 className='text-xs w-[90%] font-nunito overflow-hidden font-bold self-center text-start text-[#145e45]'>RERA No : {item?.reraNo.length > 20 ? item?.reraNo.slice(0, 15) + '...' : item?.reraNo}</h3>
             <div className='flex w-[90%] justify-between items-start'>
