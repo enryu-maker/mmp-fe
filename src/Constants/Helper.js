@@ -1,9 +1,9 @@
 import axios from 'axios';
-export const baseURL = 'https://api-nerdtech.makemyproperties.co.in/api'
+export const baseURL = 'http://localhost:8080/api'
 // export const baseURL = 'http://localhost:8080/api'
 let headers = {};
 const axiosIns = axios.create({
-    baseURL: 'https://api-nerdtech.makemyproperties.co.in/api',
+    baseURL: 'http://localhost:8080/api',
     // baseURL :'http://localhost:8080/api',
 
     headers,

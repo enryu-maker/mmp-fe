@@ -18,21 +18,30 @@ export default function Footer() {
                             <span className="sr-only">Your Company</span>
                             <img className="w-auto h-8 " src={Images.logo1} alt="" />
                         </a>
-                        <p className='text-lg font-nunito m-0 p-0 font-bold text-white text-end tracking-widest'>Make <span className='text-sm font-normal'>My</span> Property</p>
+                        <p className='text-lg font-nunito m-0 p-0 font-bold text-white text-end tracking-widest'>Make <span className='text-sm font-normal'>My</span> Properties</p>
 
                     </div>
                     <p className=' lg:text-base text-sm font-nunito font-light lg:font-bold self-start text-start my-5'>Make My Property: Crafting Dreams into Realities, Your Home Awaits.</p>
                     <div className='flex justify-start items-center space-x-2'>
-                        <button className='text-sm lg:text-base font-nunito font-bold text-[#5444e4] tracking-widest rounded-md'>
+                        <button
+                            onClick={() => {
+                                window.open('https://www.instagram.com/make_my_property?igsh=ZXJ1dTIxaWt2enBv')
+                            }}
+                            className='text-sm lg:text-base font-nunito font-bold text-[#5444e4] tracking-widest rounded-md'>
                             <FaInstagram className='text-white h-[30px] w-[30px] lg:h-[40px] lg:w-[40px]' />
                         </button>
-                        <button className='text-sm lg:text-base font-nunito font-bold text-[#5444e4] tracking-widest rounded-md'>
+                        <button
+                            onClick={() => {
+                                window.open('https://www.facebook.com/profile.php?id=61555711885900&mibextid=ZbWKwL')
+                            }}
+                            className='text-sm lg:text-base font-nunito font-bold text-[#5444e4] tracking-widest rounded-md'>
                             <FaFacebookSquare className='text-white h-[30px] w-[30px] lg:h-[40px] lg:w-[40px]' />
                         </button>
-                        <button className='text-sm lg:text-base font-nunito font-bold text-[#5444e4] tracking-widest rounded-md'>
-                            <FaLinkedin className='text-white h-[30px] w-[30px] lg:h-[40px] lg:w-[40px]' />
-                        </button>
-                        <button className='text-sm lg:text-base font-nunito font-bold text-[#5444e4] tracking-widest rounded-md'>
+                        <button
+                            onClick={() => {
+                                window.open('https://youtube.com/@makemyproperty-1234?si=q5qFVOAnkWnzs0LM')
+                            }}
+                            className='text-sm lg:text-base font-nunito font-bold text-[#5444e4] tracking-widest rounded-md'>
                             <FaYoutube className='text-white h-[30px] w-[30px] lg:h-[40px] lg:w-[40px]' />
                         </button>
                     </div>
@@ -55,7 +64,7 @@ export default function Footer() {
                     <button
                         onClick={() => {
                             dispatch(Getbytype('NA Plots'))
-                            navigate('/search/naplots')
+                            navigate('/search/NA Plots')
                         }}
                         className='text-sm lg:text-base font-nunito font-medium self-start text-start text-white tracking-widest rounded-md'>NA Plots</button>
                 </div>

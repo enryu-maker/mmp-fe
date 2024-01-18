@@ -22,8 +22,10 @@ export default function Example() {
                         <span className="sr-only">Your Company</span>
                         <img className="w-auto h-8 " src={Images.logo1} alt="" />
                     </a>
-                    <p className='text-lg font-nunito m-0 p-0 font-bold text-[#145e45] text-end tracking-widest'>Make <span className='text-sm font-normal'>My</span> Property</p>
-
+                    <div className='flex flex-col'>
+                    <p className='text-lg font-nunito m-0 p-0 font-bold text-[#145e45] text-start tracking-widest'>Make <span className='text-sm font-normal'>My</span> Properties</p>
+                    <p className='text-[6px] font-nunito m-0 p-0 font-bold text-[#145e45] text-center tracking-widest'>One Stop Solution For All Your Requirements </p>
+                    </div>
                 </div>
                 <div className="flex lg:hidden">
                     <button
